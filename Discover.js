@@ -1,4 +1,6 @@
 // const { MongoClient } = require('mongodb');
+var MongoClient = require('mongodb').MongoClient
+
 const fs = require('fs');
 
 // Connection URL
@@ -8,12 +10,11 @@ const url = 'mongodb://ahmed:XvrLhr123@discoverydocdb.cluster-cl4o62qemt92.eu-we
 // Database Name
 const dbName = 'discoverydocdb';
 
-var MongoClient = require('mongodb').MongoClient
 
 //Create a MongoDB client, open a connection to DocDB; as a replica set,
 //  and specify the read preference as secondary preferred
 
-var client = MongoClient.connect(
+MongoClient.connect(
     'mongodb://ahmed:XvrLhr123@discoverydocdb.cluster-cl4o62qemt92.eu-west-2.docdb.amazonaws.com:27017/?directConnection=true&tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false',
     {
         tlsCAFile: `global-bundle.pem` //Specify the DocDB; cert
